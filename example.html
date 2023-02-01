@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>example flex-tile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .flex-tile{
+        row-gap: var(--gap,10px);
+        column-gap: 15px;
+    }
+    .flex-tile-item{
+        width: 32%;
+        background-color: #2475c2;
+        border: 1px solid #0045c4;
+        border-radius: 10px;
+        font-size: 10px;
+        padding: 15px;
+    }
+    @media (max-width: 600px) {
+        .flex-tile-item{
+            width: 49%;
+        }
+    }
+</style>
+<body>
+<div class="container">
+    <div class="flex-tile" style="--gap:5px;">
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda aut dolores est ex facere
+                harum illo, ipsum iusto libero maxime minima, modi nihil nobis quaerat quidem sed totam vel?
+            </div>
+            <div>Consequatur distinctio eveniet, exercitationem, fuga fugiat fugit hic ipsum provident quos ratione
+                velit vero? Culpa iste iusto odit quaerat sit velit. Aperiam ipsum iusto possimus quae quos reiciendis
+                tempore voluptate.
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat labore laudantium modi numquam,
+                officia porro quibusdam quisquam reprehenderit sed similique. Ad animi aspernatur dolorum expedita
+                inventore iste magni rerum sequi?
+            </div>
+            <div>Cumque ipsum labore, minima neque nisi pariatur repudiandae! Accusantium incidunt iusto laborum
+                laudantium minus modi nobis, officia officiis quis quisquam veniam vero? Architecto enim maiores
+                obcaecati quasi, ratione sunt unde!
+            </div>
+            <div>Aliquam explicabo, maiores. Aspernatur at cum deserunt eaque id placeat rem, reprehenderit sapiente? A
+                culpa deleniti expedita explicabo in laudantium magnam non, nostrum sequi voluptatem? Iusto magnam odit
+                quasi unde!
+            </div>
+            <div>Accusantium aperiam deleniti dicta expedita magni rem veniam! Alias animi commodi doloribus, eos
+                laborum ut voluptatem. Et exercitationem expedita inventore maxime mollitia necessitatibus, nulla
+                officia quidem repudiandae ullam voluptas voluptatum.
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis cum, deserunt doloremque
+                eaque earum eligendi enim fugiat harum ipsam ipsum iure laborum magnam qui reiciendis rem repellat,
+                soluta, voluptates?
+            </div>
+            <div>Adipisci eligendi possimus ratione repellat reprehenderit, sunt! A atque cupiditate dolore eveniet,
+                fugit itaque labore maxime, optio ratione sequi suscipit totam ullam vitae voluptates voluptatum. At
+                earum id inventore praesentium!
+            </div>
+            <div>Asperiores beatae ea in ipsam iure nostrum rerum saepe veniam! Blanditiis, deleniti distinctio dolores
+                ducimus est odio quaerat ratione voluptas. Ad corporis nesciunt nisi quas reiciendis, sit soluta totam
+                vitae.
+            </div>
+            <div>Ad dolor fuga ipsa nostrum voluptatem. Aperiam dicta distinctio et facere impedit ipsa libero minima
+                nam nesciunt placeat, quasi, quod quos, ratione? Consectetur inventore nemo quibusdam rem sequi soluta,
+                vitae.
+            </div>
+            <div>A blanditiis cumque debitis delectus dicta, dignissimos, doloremque eaque facere facilis harum in
+                laborum magni molestiae necessitatibus nihil nostrum nulla numquam provident quidem quis reiciendis
+                sapiente temporibus ut voluptate, voluptates?
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam consectetur delectus
+                eveniet facilis fugiat iure, laboriosam libero molestiae necessitatibus nisi officia officiis
+                perferendis provident sequi, similique suscipit, voluptates!
+            </div>
+            <div>Aliquam cum distinctio facere, fuga natus nesciunt numquam officia, officiis quaerat quidem quos
+                recusandae ullam vitae voluptas voluptates! Amet aspernatur autem blanditiis distinctio eveniet expedita
+                facilis harum quasi recusandae unde.
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda corporis delectus error et
+                ipsam, labore neque nostrum numquam quaerat quis rem sit! Eos fugit quo voluptatum. Enim, expedita,
+                natus.
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores consectetur, cupiditate,
+                ea eligendi eveniet exercitationem expedita explicabo iure magni maxime nihil nisi odio porro qui quis
+                quos sunt tempora!
+            </div>
+            <div>Accusantium earum ipsa libero nesciunt nisi quia, quidem saepe. Ad alias aspernatur dolore eos, fugiat
+                in libero nemo, neque nesciunt nihil odit placeat possimus provident quia similique tempora vel vero.
+            </div>
+            <div>At atque deserunt dolores ducimus ex excepturi expedita, explicabo fugit impedit inventore itaque nam
+                nemo quae, quidem rerum sapiente tempore. Corporis dolore exercitationem harum illum impedit nesciunt
+                quae quidem repudiandae.
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis fugiat ipsum iste magnam maxime
+                similique. Aperiam architecto corporis delectus deleniti, dolorem dolorum exercitationem explicabo
+                fugiat hic nisi quasi tempore totam!
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cumque dicta dolor dolores
+                doloribus, ea fugit neque non quam quibusdam ratione reprehenderit tempora totam ullam veniam! Maiores
+                non similique ut.
+            </div>
+            <div>Aliquid, blanditiis dicta doloremque esse excepturi exercitationem ipsa iste laudantium nostrum nulla
+                numquam quasi qui quo rem repellendus rerum sint veniam vero vitae voluptas. Aut odit qui quia ratione
+                repudiandae.
+            </div>
+            <div>Beatae consectetur, consequuntur dignissimos eos exercitationem hic in inventore ipsum, nisi officiis
+                omnis perspiciatis quo sapiente suscipit velit vero, voluptates. Aspernatur consequuntur fugiat ipsa
+                qui! Accusantium beatae eveniet placeat rem.
+            </div>
+            <div>Dolor exercitationem illo impedit itaque laboriosam molestias omnis quaerat ratione recusandae ut. Ab
+                asperiores aut autem dolorem doloribus impedit laboriosam minima non perferendis quis, quisquam quo
+                veritatis vero vitae voluptatem.
+            </div>
+            <div>Aperiam architecto atque consequatur doloremque in minima minus mollitia necessitatibus nostrum officia
+                quasi, quibusdam quos unde, voluptate, voluptates. Dicta dolorem ducimus enim nesciunt placeat
+                reiciendis saepe tempore ullam vel! Illum?
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur culpa cum deserunt est facere
+                hic id ipsum minima, natus, neque, perferendis quae quo repellat repudiandae sequi sint tempora
+                voluptate.
+            </div></div>
+        <div class="flex-tile-item">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aut commodi debitis dignissimos
+                earum est fugit illum, impedit maiores minima minus perferendis repellat totam ullam voluptas. Animi
+                impedit repellat veniam.
+            </div>
+            <div>Accusamus aspernatur consectetur cum doloribus, dolorum ea esse eum, ex fugiat ipsam iusto laboriosam,
+                magni molestiae officiis perferendis possimus provident qui rerum saepe tempore temporibus tenetur ullam
+                unde voluptatem voluptates?
+            </div></div>
+    </div>
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>
