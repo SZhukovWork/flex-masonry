@@ -1,3 +1,4 @@
+//github: https://github.com/SZhukovWork/flex-tile/
 class FlexTile{
     parent;
     columns;
