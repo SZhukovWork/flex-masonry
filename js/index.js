@@ -8,18 +8,22 @@ class FlexTile{
         }else if(element instanceof String){
             this.parent = document.querySelector(element);
         }
-        this.parent.style.height = this.findMinHeight(this.calculateHeight(),this.calculateColumns()) +"px";
-        window.addEventListener("resize",e=>{
-            this.parent.style.height = this.findMinHeight(this.calculateHeight(),this.calculateColumns())+"px";
-        })
+        this.setHeight();
+        window.addEventListener("resize",e=>this.setHeight())
+    }
+    setHeight(){
+        let height = this.findMinHeight(this.calculateHeight(),this.calculateColumns());
+        height += parseFloat(window.getComputedStyle(this.parent).getPropertyValue('padding-top'));
+        height += parseFloat(window.getComputedStyle(this.parent).getPropertyValue('padding-bottom'));
+        this.parent.style.height = height+"px";
     }
     calculateHeight(){
         let items = this.parent.querySelectorAll(".flex-tile-item");
         let arr = [];
         items.forEach((item, index) => {
             let height = item.offsetHeight;
-            height += parseInt(window.getComputedStyle(item).getPropertyValue('margin-top'));
-            height += parseInt(window.getComputedStyle(item).getPropertyValue('margin-bottom'));
+            height += parseFloat(window.getComputedStyle(item).getPropertyValue('margin-top'));
+            height += parseFloat(window.getComputedStyle(item).getPropertyValue('margin-bottom'));
             arr.push(height);
         })
         return arr;
@@ -30,14 +34,14 @@ class FlexTile{
         let arr = [];
         items.forEach((item, index) => {
             let width = item.offsetWidth;
-            width += parseInt(window.getComputedStyle(item).getPropertyValue('margin-left'));
-            width += parseInt(window.getComputedStyle(item).getPropertyValue('margin-right'));
+            width += parseFloat(window.getComputedStyle(item).getPropertyValue('margin-left'));
+            width += parseFloat(window.getComputedStyle(item).getPropertyValue('margin-right'));
             arr.push(width);
         })
         let maxItemWidth = Math.max(...arr);
-        let gap = parseInt(window.getComputedStyle(this.parent).getPropertyValue('column-gap'));
+        let gap = parseFloat(window.getComputedStyle(this.parent).getPropertyValue('column-gap'));
         let width = 0;
-        let maxWidth = this.parent.offsetWidth - parseInt(window.getComputedStyle(this.parent).getPropertyValue('padding-right')) - parseInt(window.getComputedStyle(this.parent).getPropertyValue('padding-left'))
+        let maxWidth = this.parent.offsetWidth - parseFloat(window.getComputedStyle(this.parent).getPropertyValue('padding-right')) - parseFloat(window.getComputedStyle(this.parent).getPropertyValue('padding-left'))
         while(width + gap < maxWidth){
             if(width > 0){
                 width += gap;
@@ -45,16 +49,27 @@ class FlexTile{
             width += maxItemWidth;
             columns++;
         }
+        if(maxWidth < width && columns > 1)
+            columns--;
         return columns;
     }
     findMinHeight(elements,columns){
         if (columns === 1) {
-            return elements;
+            return elements.reduce((accumulator,number,index,elements)=>{
+                let height =  parseFloat(number);
+                if(index === 1){
+                    height += parseFloat(window.getComputedStyle(this.parent).getPropertyValue("row-gap"));
+                }
+                if(elements.length-1 !== index){
+                    height += parseFloat(window.getComputedStyle(this.parent).getPropertyValue("row-gap"));
+                }
+                return parseFloat(accumulator) + height;
+            })+5;
         }
         for(let i = 0; i < columns - 1; i++){
             elements.splice(i,0,"|");
         }
-        let limit = 100;
+        let limit = 1000;
         let i = 0;
         let min = Math.max(...elements.join(",").split(/,?\|,?/g).map(item=>item.split(",").filter(n=>n)).filter(elements=>elements.length).map(elements=>elements.reduce((a,n)=>a-(-n))));
         let resultElements = elements.join(",").split(/,?\|,?/g).map(item=>item.split(",").filter(n=>n));
@@ -75,25 +90,23 @@ class FlexTile{
                 [elements[indexLast],elements[indexLast+1]] = [elements[indexLast+1],elements[indexLast]];
             }
             let thisMax = elements.join(",").split(/,?\|,?/g).map(item=>item.split(",").filter(n=>n)).filter(elements=>elements.length).map(elements=>elements.reduce((accumulator,number,index,elements)=>{
-                let height =  parseInt(number);
+                let height =  parseFloat(number);
                 if(index === 1){
-                    height += parseInt(window.getComputedStyle(this.parent).getPropertyValue("row-gap"));
+                    height += parseFloat(window.getComputedStyle(this.parent).getPropertyValue("row-gap"));
                 }
                 if(elements.length-1 !== index){
-                    height += parseInt(window.getComputedStyle(this.parent).getPropertyValue("row-gap"));
+                    height += parseFloat(window.getComputedStyle(this.parent).getPropertyValue("row-gap"));
                 }
-                return parseInt(accumulator) + height;
+                return parseFloat(accumulator) + height;
             }));
-            //console.log(elements.join(",").split(/,?\|,?/g).map(item=>item.split(",").filter(n=>n)).filter(elements=>elements.length),thisMax,Math.max(...thisMax))
             thisMax = Math.max(...thisMax);
             if(thisMax < min){
                 min = thisMax;
                 resultElements = elements.join(",").split(/,?\|,?/g).map(item=>item.split(",").filter(n=>n));
             }
-
             i++;
         }
-        return min;
+        return min+5;
     }
 }
 window.addEventListener("load",e=>{
