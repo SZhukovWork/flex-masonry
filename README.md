@@ -19,5 +19,5 @@ gap  gap gap      |..............| gap |.............|
 |―――|   gap  gap gap gap |..............|  
 gap gap gap gap gap gap |―――|   
 
-Но лучше вам глянуть example.html.  
+Но лучше вам глянуть example.html или https://codepen.io/Goodsem/pen/VwBVJVr
 Можно адаптировать, количество колонок высчитвает по максимальной ширине одного из элементов.
