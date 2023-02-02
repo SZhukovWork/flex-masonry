@@ -38,7 +38,7 @@ class FlexTile{
             width += parseFloat(window.getComputedStyle(item).getPropertyValue('margin-right'));
             arr.push(width);
         })
-        let maxItemWidth = Math.max(...arr);
+        let maxItemWidth = Math.max(...arr)-5;
         let gap = parseFloat(window.getComputedStyle(this.parent).getPropertyValue('column-gap'));
         let width = 0;
         let maxWidth = this.parent.offsetWidth - parseFloat(window.getComputedStyle(this.parent).getPropertyValue('padding-right')) - parseFloat(window.getComputedStyle(this.parent).getPropertyValue('padding-left'))
